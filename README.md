@@ -1,4 +1,4 @@
-# Emote Board
+# Discord Emote Board
 Simple web tool that allows users to save Discord emotes and use them in-app without Discord Nitro.
 
 ### How do I use this tool?
