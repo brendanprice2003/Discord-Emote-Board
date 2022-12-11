@@ -38,16 +38,12 @@ a:hover {
 #imageContentWrapper {
     display: block;
     margin: auto;
-    padding-right: 15px;
     width: fit-content;
-    overflow: visible;
 }
 
 #imagesContainer {
-    display: flex;
     margin-top: 15px;
-    gap: 15px;
-    width: 90vw;
+    width: 91vw;
 }
 
 .image {

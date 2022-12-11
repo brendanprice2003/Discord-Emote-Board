@@ -1,14 +1,18 @@
 
+import json from './emotes.json.proxy.js';
+
+
 const log = console.log.bind(console),
       localStorage = window.localStorage,
       sessionStorage = window.sessionStorage;
 
+
 // Omit refresh on form submit
-let form = document.getElementById('entryField');
 function handleForm(event) {
     event.preventDefault();
 };
-form.addEventListener('submit', handleForm);
+document.getElementById('entryField').addEventListener('submit', handleForm);
+
 
 // Get value from field on (Enter) keypress
 document.getElementById('entryField').onkeydown = function(event) {
@@ -25,6 +29,7 @@ document.getElementById('entryField').onkeydown = function(event) {
     };
 };
 
+
 // Parse emote ID, URL and emote type from the input
 function parseEmote(value) {
 
@@ -36,10 +41,12 @@ function parseEmote(value) {
     return {emoteID, emoteURL, emoteType};
 };
 
+
 // Save emote URL to local storage
 function saveEmoteToLocalStorage(emoteID, emoteURL, emoteType) {
     localStorage.setItem(`${emoteID}`, JSON.stringify({emoteURL:emoteURL, emoteType:emoteType}));
 };
+
 
 // Push emote to DOM
 function pushEmoteToDOM(emoteID, emoteURL, emoteType) {
@@ -51,8 +58,17 @@ function pushEmoteToDOM(emoteID, emoteURL, emoteType) {
     document.getElementById('imagesContainer').appendChild(emote);
 };
 
+
 // Load and push emotes from local storage
 function loadAndPushEmotesFromLocalStorage() {
+
+    Object.keys(json).forEach((key, index) => {
+        
+        let emoteID = json[index].split('/emojis/')[1].split('.')[0],
+            emoteType = json[index].split('/emojis/')[1].split('.')[1].split('?')[0];
+        let emoteURL = `https://cdn.discordapp.com/emojis/${emoteID}.${emoteType}?size=48`;
+        pushEmoteToDOM(emoteID, emoteURL, emoteType);
+    });
 
     for (let i = 0; i < localStorage.length; i++) {
 
@@ -72,6 +88,7 @@ function loadAndPushEmotesFromLocalStorage() {
     });
 };
 
+
 // Create and copy emote URL to clipboard
 function createAndCopyEmoteURL(elementID) {
     
@@ -82,6 +99,7 @@ function createAndCopyEmoteURL(elementID) {
     // Add emote URL to clipboard
     navigator.clipboard.writeText(emoteURL);
 };
+
 
 // Create and show notification
 function createAndShowNotification(notificationMessage) {
@@ -101,5 +119,6 @@ function createAndShowNotification(notificationMessage) {
         notification.classList.add('notificationAnimationRemove');
     }, 3000);
 };
+
 
 loadAndPushEmotesFromLocalStorage();
