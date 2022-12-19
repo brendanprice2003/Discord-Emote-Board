@@ -1,5 +1,5 @@
 
-import json from './emotes.json';
+import json from './packs/default.json';
 
 
 const log = console.log.bind(console),
