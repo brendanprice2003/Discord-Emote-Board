@@ -24,6 +24,20 @@ a:hover {
     color: rgb(238, 238, 90);
 }
 
+#fubar {
+    margin-top: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(105, 105, 105);
+    border: 1px solid rgb(75, 75, 75);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
 #entryField {
     display: block;
     margin: auto;

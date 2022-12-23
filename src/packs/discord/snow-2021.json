@@ -1,0 +1,7 @@
+{
+    "metadata": {
+        "name": "Cat Emotes",
+        "desc": "A collection of cat emotes",
+        "types": ["image", "gif"]
+    }
+}

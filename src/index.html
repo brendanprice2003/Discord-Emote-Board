@@ -13,9 +13,12 @@
 </head>
 <body>
 
-    <form onsubmit="return false">
-        <input id="entryField" type="text" name="entryField" placeholder="Enter Emote URL">
-    </form>
+    <div style="display: flex;width:95%;">
+        <form onsubmit="return false">
+            <input id="entryField" type="text" name="entryField" placeholder="Enter Emote URL">
+        </form>
+        <div id="fubar">Packs</div>
+    </div>
 
     <div id="imageContentWrapper">
         <div id="imagesContainer"></div>
@@ -23,6 +26,7 @@
 
     <div id="footer"><a target="_blank" href="https://github.com/brendanprice2003/Discord-Emote-Board#how-do-i-use-this-tool">How to Use</a> | Discord Emote Board | <a target="_blank" href="https://twitter.com/_devbrendan">@_devbrendan</a></div>
 
-    <script src="script.js" type="module"></script>
+    <script src="scripts/packs.js" type="module"></script>
+    <script src="scripts/index.js" type="module"></script>
 </body>
 </html>

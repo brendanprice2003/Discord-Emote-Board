@@ -1,5 +1,5 @@
 
-import json from './emotes.json.proxy.js';
+import json from './packs/default.json.proxy.js';
 
 
 const log = console.log.bind(console),
